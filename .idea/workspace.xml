@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd2c79e2-f641-468b-9271-06d5ff09158f" name="Changes" comment="添加图片">
-      <change beforePath="$PROJECT_DIR$/homework/las_vegas.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/las_vegas.py" afterDir="false" />
+    <list default="true" id="fd2c79e2-f641-468b-9271-06d5ff09158f" name="Changes" comment="完成线路板布线问题">
+      <change afterPath="$PROJECT_DIR$/reame.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel_svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/kernel_svm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistic_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_regression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mnist_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/mnist_dataset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -33,10 +41,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.cnn.executor": "Run",
     "Python.genetic_algorithm.executor": "Run",
     "Python.gnn.executor": "Run",
     "Python.kernel_svm.executor": "Run",
-    "Python.las_vegas.executor": "Debug",
+    "Python.las_vegas.executor": "Run",
     "Python.linear_svm.executor": "Run",
     "Python.load_dataset.executor": "Run",
     "Python.logistic_regression.executor": "Run",
@@ -67,7 +76,30 @@
       <recent name="D:\Project\AI\machine-learning-lesson\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.las_vegas">
+  <component name="RunManager" selected="Python.kernel_svm">
+    <configuration name="cnn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="machine-learning-lesson" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cnn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="kernel_svm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine-learning-lesson" />
       <option name="ENV_FILES" value="" />
@@ -183,36 +215,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="simulated_annealing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="machine-learning-lesson" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/homework" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/homework/simulated_annealing.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.kernel_svm" />
+        <item itemvalue="Python.cnn" />
+        <item itemvalue="Python.logistic_regression" />
         <item itemvalue="Python.las_vegas" />
         <item itemvalue="Python.linear_svm" />
-        <item itemvalue="Python.logistic_regression" />
-        <item itemvalue="Python.kernel_svm" />
-        <item itemvalue="Python.simulated_annealing" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +251,7 @@
       <workItem from="1705237637447" duration="60000" />
       <workItem from="1705237711826" duration="1889000" />
       <workItem from="1705239644364" duration="103000" />
-      <workItem from="1705239784073" duration="4521000" />
+      <workItem from="1705239784073" duration="10534000" />
     </task>
     <task id="LOCAL-00001" summary="读取mat数据集">
       <option name="closed" value="true" />
@@ -292,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705243924566</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="完成线路板布线问题">
+      <option name="closed" value="true" />
+      <created>1705244593559</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705244593559</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +322,8 @@
     <MESSAGE value="更改模型保存名称" />
     <MESSAGE value="修改一些显示&#10;完成退火算法" />
     <MESSAGE value="添加图片" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加图片" />
+    <MESSAGE value="完成线路板布线问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成线路板布线问题" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/machine_learning_lesson$genetic_algorithm.coverage" NAME="genetic_algorithm Coverage Results" MODIFIED="1705238138696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
@@ -313,10 +331,11 @@
     <SUITE FILE_PATH="coverage/machine_learning_lesson$linear_svm.coverage" NAME="linear_svm Coverage Results" MODIFIED="1705243803864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/machine_learning_lesson$main.coverage" NAME="main Coverage Results" MODIFIED="1702969855467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/machine_learning_lesson$load_dataset.coverage" NAME="load_dataset Coverage Results" MODIFIED="1702972165361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/machine_learning_lesson$cnn.coverage" NAME="cnn Coverage Results" MODIFIED="1705247864996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/machine_learning_lesson$simulated_annealing.coverage" NAME="simulated_annealing Coverage Results" MODIFIED="1705242018910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
-    <SUITE FILE_PATH="coverage/machine_learning_lesson$kernel_svm.coverage" NAME="kernel_svm Coverage Results" MODIFIED="1705242721571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/machine_learning_lesson$kernel_svm.coverage" NAME="kernel_svm Coverage Results" MODIFIED="1705249231813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/machine_learning_lesson$gnn.coverage" NAME="gnn Coverage Results" MODIFIED="1705230214144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/machine_learning_lesson$logistic_regression.coverage" NAME="logistic_regression Coverage Results" MODIFIED="1705243634704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/machine_learning_lesson$las_vegas.coverage" NAME="las_vegas Coverage Results" MODIFIED="1705244048231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
+    <SUITE FILE_PATH="coverage/machine_learning_lesson$logistic_regression.coverage" NAME="logistic_regression Coverage Results" MODIFIED="1705246644317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/machine_learning_lesson$las_vegas.coverage" NAME="las_vegas Coverage Results" MODIFIED="1705244364496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework" />
   </component>
 </project>

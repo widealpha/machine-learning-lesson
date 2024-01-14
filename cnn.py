@@ -14,7 +14,7 @@ class CNN(nn.Module):
                 out_channels=16,  # 要得到几多少个特征图
                 kernel_size=5,  # 卷积核大小
                 stride=1,  # 步长
-                padding=2,  #
+                padding=2,  # 填充
             ),  # 输出的特征图为 (16, 28, 28)
             nn.ReLU(),  # relu层
             nn.MaxPool2d(kernel_size=2),  # 进行池化操作（2x2 区域）, 输出结果为： (16, 14, 14)
@@ -42,7 +42,7 @@ def accuracy(predictions, labels):
 
 if __name__ == '__main__':
     # 定义超参数
-    num_epochs = 3  # 训练的总循环周期
+    num_epochs = 10  # 训练的总循环周期
     batch_size = 64  # 一个撮（批次）的大小，64张图片
     train_loader = get_dataloader(train=True, batch_size=batch_size)
     test_loader = get_dataloader(train=False, batch_size=batch_size)
@@ -84,7 +84,7 @@ if __name__ == '__main__':
                 val_r = (sum([tup[0] for tup in val_rights]), sum([tup[1] for tup in val_rights]))
 
                 print(
-                    '当前epoch: {} [{}/{} ({:.0f}%)]\t损失: {:.6f}\t训练集准确率: {:.2f}%\t测试集正确率: {:.2f}%'.format(
+                    '当前epoch: {} [{}/{} ({:.0f}%)]\t损失: {:.6f}\t训练集准确率: {:.2f}%\t测试集准确率: {:.2f}%'.format(
                         epoch, batch_idx * batch_size, len(train_loader.dataset), 100.0 * batch_idx / len(train_loader),
                         loss.data, 100. * train_r[0] / train_r[1], 100. * val_r[0] / val_r[1]))
-    torch.save(net, './model/gnn.model')
+    torch.save(net, './model/cnn.model')

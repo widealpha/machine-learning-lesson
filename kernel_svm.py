@@ -9,7 +9,7 @@ from load_dataset import split_train_test_dataset
 if __name__ == '__main__':
     # 提取训练集
     x_train, y_train, x_test, y_test = split_train_test_dataset()
-    kernel = 'rbf'
+    kernel = 'precomputed'
     print('Kernel SVM方法 使用 %s 核函数' % kernel)
     start_time = time.time()
     svc = svm.SVC(kernel=kernel)

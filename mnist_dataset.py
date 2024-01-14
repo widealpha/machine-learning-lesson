@@ -4,9 +4,11 @@ from torch.utils.data import Dataset
 
 class MnistDataset(Dataset):
     def __init__(self, root, train=True, transform=None, target_transform=None):
+        # 读取mat形式的数据
         all_data = scio.loadmat(root + '/mnist_all.mat')
         image_labels = []
         image_data = []
+        # 读取训练集,测试集,以及对应的标签,存入image_data和image_labels中
         if train:
             pre = 'train'
         else:
