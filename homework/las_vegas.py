@@ -1,5 +1,22 @@
 import random
 
+import numpy as np
+
+
+def generate_board(board_size, num_obstacles):
+    # 生成指定大小的线路板，并在其中随机放置一定数量的障碍物
+    board = np.zeros(board_size, dtype=int)
+    obstacles = set()
+
+    for _ in range(num_obstacles):
+        obstacle = (random.randint(0, board_size[0] - 1), random.randint(0, board_size[1] - 1))
+        while obstacle in obstacles:
+            obstacle = (random.randint(0, board_size[0] - 1), random.randint(0, board_size[1] - 1))
+        obstacles.add(obstacle)
+        board[obstacle] = 1  # 1 表示障碍物
+
+    return board, obstacles
+
 
 class LineRoutingProblem:
     def __init__(self, board_size, obstacles):
@@ -41,11 +58,15 @@ class LineRoutingProblem:
 
 
 if __name__ == '__main__':
-    # 示例用法
-    board_size = (5, 5)
-    obstacles = [(1, 2), (2, 2), (3, 2)]
+    board_size = (10, 10)
+    num_obstacles = 10
+    board, obstacles = generate_board(board_size, num_obstacles)
+
+    print("生成的线路板:")
+    print(board)
+
     problem = LineRoutingProblem(board_size, obstacles)
     solution, min_cost = problem.solve()
 
-    print("最优线路:", solution)
+    print("\n最优线路:", solution)
     print("最小成本:", min_cost)
