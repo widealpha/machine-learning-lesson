@@ -1,14 +1,16 @@
 import math
 import random
+import time
 
-# 城市坐标数据，格式为 (x, y)
-cities = {
-    'A': (0, 0),
-    'B': (1, 2),
-    'C': (3, 1),
-    'D': (5, 2),
-    'E': (6, 0)
-}
+
+def generate_random_cities(num_cities, x_range=(0, 10), y_range=(0, 10)):
+    cities = {}
+    for i in range(num_cities):
+        city_name = chr(ord('A') + i)
+        x = random.uniform(x_range[0], x_range[1])
+        y = random.uniform(y_range[0], y_range[1])
+        cities[city_name] = (x, y)
+    return cities
 
 
 # 计算两个城市之间的距离
@@ -16,6 +18,10 @@ def distance(city1, city2):
     x1, y1 = cities[city1]
     x2, y2 = cities[city2]
     return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+
+
+def stop_condition(num_iterations):
+    return num_iterations > 1000
 
 
 # 计算路径长度
@@ -31,7 +37,7 @@ def total_distance(path):
 def simulated_annealing_tsp(initial_path, initial_temperature, temperature_decay, inner_loop_stop_condition):
     current_path = initial_path
     current_temperature = initial_temperature
-
+    num_iterations = 0
     while not inner_loop_stop_condition(current_temperature):
         # 从邻域中随机选择一个新解
         neighbor_path = generate_neighbor_path(current_path)
@@ -44,6 +50,7 @@ def simulated_annealing_tsp(initial_path, initial_temperature, temperature_decay
             current_path = neighbor_path
 
         # 更新温度
+        num_iterations += 1
         current_temperature = temperature_decay(current_temperature)
 
     return current_path
@@ -69,13 +76,26 @@ def inner_loop_stop_condition(current_temperature):
 
 if __name__ == "__main__":
     # 设置初始解、初始温度等参数
-    initial_path = ['A', 'B', 'C', 'D', 'E', 'A']
+    num_cities = 5
     initial_temperature = 1000.0
-
+    cities = generate_random_cities(num_cities=5)
+    initial_path = list(cities.keys())
+    # 输出TSP图
+    print("城市坐标:", cities)
+    print("初始路径:", initial_path)
+    # 计算城市间距离
+    print("城市间距离:")
+    for city1 in cities:
+        for city2 in cities:
+            print(f"{city1} -> {city2}: {distance(city1, city2):.2f}", end=' ; ')
+    print()
+    start_time = time.time()
     # 运行模拟退火算法
     final_path = simulated_annealing_tsp(initial_path, initial_temperature, temperature_decay,
                                          inner_loop_stop_condition)
-
+    end_time = time.time()
+    execution_time = end_time - start_time
     # 输出结果
-    print("Final Path:", final_path)
-    print("Total Distance:", total_distance(final_path))
+    print(f"代码执行时间：{execution_time * 1000}ms")
+    print("最终路径:", final_path)
+    print("总距离:", total_distance(final_path))
