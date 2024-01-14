@@ -1,55 +1,81 @@
 import math
 import random
 
+# 城市坐标数据，格式为 (x, y)
+cities = {
+    'A': (0, 0),
+    'B': (1, 2),
+    'C': (3, 1),
+    'D': (5, 2),
+    'E': (6, 0)
+}
 
-def simulated_annealing(initial_solution, objective_function, generate_neighbor, initial_temperature, cooling_rate,
-                        stopping_condition):
-    current_solution = initial_solution
+
+# 计算两个城市之间的距离
+def distance(city1, city2):
+    x1, y1 = cities[city1]
+    x2, y2 = cities[city2]
+    return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+
+
+# 计算路径长度
+def total_distance(path):
+    total = 0
+    for i in range(len(path) - 1):
+        total += distance(path[i], path[i + 1])
+    total += distance(path[-1], path[0])  # 回到起始城市
+    return total
+
+
+# 模拟退火算法求解TSP
+def simulated_annealing_tsp(initial_path, initial_temperature, temperature_decay, inner_loop_stop_condition):
+    current_path = initial_path
     current_temperature = initial_temperature
-    k = 0
 
-    while not stopping_condition(k, current_temperature):
-        neighbor_solution = generate_neighbor(current_solution)
-        delta_f = objective_function(neighbor_solution) - objective_function(current_solution)
+    while not inner_loop_stop_condition(current_temperature):
+        # 从邻域中随机选择一个新解
+        neighbor_path = generate_neighbor_path(current_path)
 
-        if delta_f <= 0 or random.uniform(0, 1) < math.exp(-delta_f / current_temperature):
-            current_solution = neighbor_solution
+        # 计算目标函数差异
+        delta_distance = total_distance(neighbor_path) - total_distance(current_path)
 
-        current_temperature = cooling_rate(current_temperature)
-        k += 1
+        # 判断是否接受新解
+        if delta_distance <= 0 or math.exp(-delta_distance / current_temperature) > random.random():
+            current_path = neighbor_path
 
-    return current_solution
+        # 更新温度
+        current_temperature = temperature_decay(current_temperature)
 
-
-# Example Usage:
-# Define your own objective function, initial solution, and neighbor generation function
-def objective_function(x):
-    # Your objective function to minimize
-    return sum(x)
+    return current_path
 
 
-def generate_neighbor(current_solution):
-    # Your method to generate a neighboring solution
-    neighbor_solution = current_solution.copy()
-    index = random.randint(0, len(neighbor_solution) - 1)
-    neighbor_solution[index] = 1 - neighbor_solution[index]  # Flip 0 to 1 or 1 to 0
-    return neighbor_solution
+# 生成邻域中的随机解，交换两个城市的位置
+def generate_neighbor_path(current_path):
+    path = current_path.copy()
+    idx1, idx2 = random.sample(range(len(path)), 2)
+    path[idx1], path[idx2] = path[idx2], path[idx1]
+    return path
 
 
-def cooling_rate(current_temperature):
-    # Your cooling rate function
-    return 0.95 * current_temperature  # Example cooling rate
+# 温度衰减函数
+def temperature_decay(current_temperature):
+    return 0.9 * current_temperature
 
 
-def stopping_condition(k, current_temperature):
-    # Your stopping condition, e.g., a maximum number of iterations or minimum temperature
-    return k < 1000 and current_temperature > 0.01
+# 内循环停止条件函数，可以根据需要进行调整
+def inner_loop_stop_condition(current_temperature):
+    return current_temperature < 1e-5
 
 
-# Example usage:
-initial_solution = [0, 1, 0, 1, 1]
-result = simulated_annealing(initial_solution, objective_function, generate_neighbor, initial_temperature=100,
-                             cooling_rate=cooling_rate, stopping_condition=stopping_condition)
+if __name__ == "__main__":
+    # 设置初始解、初始温度等参数
+    initial_path = ['A', 'B', 'C', 'D', 'E', 'A']
+    initial_temperature = 1000.0
 
-print("Best solution:", result)
-print("Objective function value:", objective_function(result))
+    # 运行模拟退火算法
+    final_path = simulated_annealing_tsp(initial_path, initial_temperature, temperature_decay,
+                                         inner_loop_stop_condition)
+
+    # 输出结果
+    print("Final Path:", final_path)
+    print("Total Distance:", total_distance(final_path))
